@@ -14,7 +14,7 @@
  *       "id": "123"
  *     }
  *
- * @apiError EmailAlreadyTaken User already exists
+ * @apiError UserAlreadyTaken User already exists
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 400 Already Exists
@@ -22,6 +22,44 @@
  *       "error": "User Already Exists"
  *     }
  */
+
+
+/**
+ * @api {delete} /user/ Delete user - II error-responses
+ * @apiName DeleteUser
+ * @apiGroup Users
+ *
+ * @apiParam {String} email User's email
+ * or
+ * @apiParam {Number}  id User id
+ *
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK  User was deleted
+ *     {
+ *       "id": "123"
+ *      
+ *     }
+ *
+ * @apiError UserNotExist  User not  exists
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 400 User not  Exists
+ *     {
+ *       "error": "User not Exists"
+ *     }
+ *
+ * @apiError OperationForbidden  User  can't delete another user
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 403 Forbidden to delete another user
+ *     {
+ *       "error": "Forbidden to delete another user"
+ *     }
+
+ */
+
+
 
 /**
  * @api {post} /user/:id Update user's info
@@ -40,17 +78,18 @@
  *       "id": "123"
  *     }
  *
- * @apiError EmailAlreadyTaken User already exists
+ * @apiError ForbiddenOperation  User can't change information of  another user
  *
  * @apiErrorExample Error-Response:
- *     HTTP/1.1 400 Already Exists
+ *     HTTP/1.1 404 ForbiddenOperation 
  *     {
- *       "error": "User Already Exists"
+ *       "error": "User can't change information of  another user"
  *     }
  *
- * @ apiDescription
+ * @apiDescription
  *
  * User may change only himself parameters 
+ *
  */
 
 
