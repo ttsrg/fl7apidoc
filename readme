@@ -1,3 +1,8 @@
-you may create for NGINX symlink :
+http://35.196.49.185/
+
+
+OR you may create for NGINX symlink :
 rm /var/www/html
 ln -s /$PATH/doc/ /var/www/html
+
+
